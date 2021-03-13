@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 const styles = StyleSheet.create({
   locationSearchBtn: {
     backgroundColor: 'green',
-    height: 60,
+    height: 30,
     width: Dimensions.get('screen').width - 20,
     borderRadius: 10,
     borderWidth: 3,
@@ -11,9 +11,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    top: 50,
-    elevation: 100,
   },
   
   locationSearchText:{
