@@ -2,10 +2,10 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
   locationSearchBtn: {
-    backgroundColor: 'green',
-    height: 30,
+    backgroundColor: '#fff',
+    height: 40,
     width: Dimensions.get('screen').width - 20,
-    borderRadius: 10,
+    borderRadius: 20,
     borderWidth: 3,
     marginHorizontal: 10,
     flexDirection: 'row',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   
   locationSearchText:{
     fontWeight: 'bold',
-    fontSize: 21
+    fontSize: 10,
   },
 });
 

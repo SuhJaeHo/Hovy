@@ -18,15 +18,14 @@ const LocationSearch = (props) => {
       placeholder='Search'
       fetchDetails={true}
       onPress={(data, details = null) => {
-        navigation.navigate('Main', {lat: details.geometry.location.lat, lng: details.geometry.location.lng})
-        // 'details' is provided when fetchDetails = true
+        navigation.push('Main', {lat: details.geometry.location.lat, lng: details.geometry.location.lng, address: data.description})
       }}
       styles={{
         textInput: styles.textInput,
       }}
       query={{
         key: 'AIzaSyBMk4s9KTSOS2IICXgJ8jQQAeITjx8f3fE',
-        language: 'en',
+        language: 'ko',
       }}
     />
     </View>
