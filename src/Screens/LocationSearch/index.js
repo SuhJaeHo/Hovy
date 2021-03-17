@@ -3,7 +3,6 @@ import { View, TextInput, Text, FlatList, Pressable } from "react-native";
 import styles from './styles.js';
 import {useNavigation} from '@react-navigation/native';
 
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'; 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 import Main from '../Main';

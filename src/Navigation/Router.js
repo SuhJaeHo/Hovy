@@ -5,6 +5,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Main from "../Screens/Main";
 import LocationSearch from "../Screens/LocationSearch";
 
+import HomeTabNavigator from './HomeTabNavigator';
+
 const Stack = createStackNavigator();
 
 const Router = (props) => {
@@ -12,6 +14,14 @@ const Router = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name={"Home"}
+          component={HomeTabNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name={"Main"}
           component={Main}
