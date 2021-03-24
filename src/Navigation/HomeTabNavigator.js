@@ -16,6 +16,7 @@ import Main from '../Screens/Main';
 import LocationSearch from '../Screens/LocationSearch';
 import MyPage from '../Screens/MyPage';
 import Chat from '../Screens/Chat';
+import MakeRoom from '../Screens/MakeRoom';
 
 const Tab = createBottomTabNavigator();
 
@@ -62,7 +63,17 @@ const HomeTabNavigator = (props) => {
                         <Ionicons name="person-outline" size={25} color={color} />
                     ),            
                 }}
-            />           
+            />
+
+            <Tab.Screen
+                name={"방 개설"}
+                component={MakeRoom}
+                options={{
+                    tabBarIcon: (color) => (
+                        <Ionicons name="person-outline" size={25} color={color} />
+                    ),            
+                }}
+            />            
         </Tab.Navigator>
     );
 };

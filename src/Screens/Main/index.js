@@ -27,8 +27,6 @@ export default class Main extends Component{
         
         if(this.props.route.params === undefined){
           this.initLocation();
-              
-          console.log(this.state.address);
       }
     }
 
