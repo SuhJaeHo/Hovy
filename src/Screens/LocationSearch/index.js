@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 import Main from '../Main';
+import MakeRoom from '../MakeRoom';
 
 const LocationSearch = (props) => {
 
@@ -17,7 +18,13 @@ const LocationSearch = (props) => {
       placeholder='Search'
       fetchDetails={true}
       onPress={(data, details = null) => {
-        navigation.push('Main', {lat: details.geometry.location.lat, lng: details.geometry.location.lng, address: data.description})
+        //check = 1 : 방만들기 화면에서 넘어올 때
+        //check = 0 : 메인페이지화면에서 넘어올 때
+        if(props.route.params.check === 1){
+          navigation.push('MakeRoom', {lat: details.geometry.location.lat, lng: details.geometry.location.lng, address: data.description});
+        }else{
+          navigation.push('Main', {lat: details.geometry.location.lat, lng: details.geometry.location.lng, address: data.description})
+        }
       }}
       styles={{
         textInput: styles.textInput,
