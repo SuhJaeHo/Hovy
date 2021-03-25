@@ -75,46 +75,39 @@ export default class Main extends Component{
     addRoom = () => {
           this.setState({
             roomRegion: {
-              lat: this.props.route.params.roomLat,
-              lng: this.props.route.params.roomLng,
+              latitude: this.props.route.params.roomLat,
+              longitude: this.props.route.params.roomLng,
             },
           });
     }
-
- 
-    
+  
     searchLocation = () => {
-
+      this.setState({
+        region: {
+          latitude: this.props.route.params.lat,
+          longitude: this.props.route.params.lng,
+        },                  
+      });         
+      Geocoder.init('AIzaSyBMk4s9KTSOS2IICXgJ8jQQAeITjx8f3fE', {language: 'ko'});
+      Geocoder.from(this.props.route.params.lat, this.props.route.params.lng)
+        .then(json => {
+          console.log(json);              
+          var addressComponent = json.results[0].formatted_address;
+          this.setState({
+            address: addressComponent
+          });
+        })
     }
 
     componentDidMount() {
         setTimeout(() => this.setState({marginBottom: 0}), 100)
         if(this.props.route.params !== undefined){
           if(this.props.route.params.check !== 1){
-              this.setState({
-                  region: {
-                    latitude: this.props.route.params.lat,
-                    longitude: this.props.route.params.lng,
-                  },                  
-              });         
-              Geocoder.init('AIzaSyBMk4s9KTSOS2IICXgJ8jQQAeITjx8f3fE', {language: 'ko'});
-              Geocoder.from(this.props.route.params.lat, this.props.route.params.lng)
-                .then(json => {
-                  console.log(json);              
-                  var addressComponent = json.results[0].formatted_address;
-                  this.setState({
-                    address: addressComponent
-                  });
-                })
-              }else{
-                this.initLocation();
-                this.setState({
-                  roomRegion: {
-                    latitude: this.props.route.params.roomLat,
-                    longitude: this.props.route.params.roomLng,
-                  },
-                });
-              }
+              this.searchLocation();
+          }else{
+            this.initLocation();
+            this.addRoom();
+          }
         }else{
           this.initLocation();
         }                                          
